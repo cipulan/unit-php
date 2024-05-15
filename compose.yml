@@ -21,7 +21,7 @@ services:
       # Routers
       - "traefik.http.routers.${SERVICE_NAME}.rule=Host(`${DOMAIN}`, `www.${DOMAIN}`)"
       - "traefik.http.routers.${SERVICE_NAME}.service=${SERVICE_NAME}"
-      - "traefik.http.routers.${SERVICE_NAME}.entrypoints=websecure" #configuration inside traefik stack
+      # - "traefik.http.routers.${SERVICE_NAME}.entrypoints=websecure" #configuration inside traefik stack
 
       # Services
       - "traefik.http.services.${SERVICE_NAME}.loadbalancer.server.port=8080"
