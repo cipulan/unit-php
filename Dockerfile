@@ -1,4 +1,6 @@
-FROM unit:${UNIT_PHP} as base
+ARG UNIT_PHP
+
+FROM unit:$UNIT_PHP as base
 
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 

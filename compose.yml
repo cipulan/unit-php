@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        - UNIT_PHP=${UNIT_PHP}
     restart: always
     volumes:
       - ./public:/var/www/public
