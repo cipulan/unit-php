@@ -16,7 +16,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=proxy" #that common network i was talking about
       - "traefik.http.routers.${SERVICE_NAME}.tls=true"
-      - "traefik.http.routers.sewamobil.tls.certresolver=myresolver"
+      - "traefik.http.routers.${SERVICE_NAME}.tls.certresolver=myresolver"
 
       # Routers
       - "traefik.http.routers.${SERVICE_NAME}.rule=Host(`${DOMAIN}`, `www.${DOMAIN}`)"
