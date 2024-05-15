@@ -11,7 +11,7 @@ RUN chmod +x /usr/local/bin/install-php-extensions && \
     intl \
     opcache \
     pcntl \
-    pdo_mysql \
+    mysqli \
     redis \
     soap \
     xsl
