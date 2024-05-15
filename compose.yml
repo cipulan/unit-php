@@ -8,7 +8,7 @@ services:
       - ./public:/var/www/public
       - ./unit.config.json:/docker-entrypoint.d/config.json
     networks:
-      - ${TRAEFIK_NETWORK}
+      - proxy
     labels:
       # Traefik
       - "traefik.enable=true"
@@ -20,12 +20,11 @@ services:
       - "traefik.http.routers.${SERVICE_NAME}.rule=Host(`${DOMAIN}`, `www.${DOMAIN}`)"
       - "traefik.http.routers.${SERVICE_NAME}.service=${SERVICE_NAME}"
       - "traefik.http.routers.${SERVICE_NAME}.entrypoints=websecure" #configuration inside traefik stack
-        # - "traefik.http.routers.sewamobil.middlewares=strip-path-prefix" # we use this to strip the /service-path/... part off the request so all requests hit / inside our containers (no need to worry about that on the API side)
 
       # Services
       - "traefik.http.services.${SERVICE_NAME}.loadbalancer.server.port=8080"
       - "traefik.http.services.${SERVICE_NAME}.loadbalancer.server.scheme=http"
 
 networks:
-  ${TRAEFIK_NETWORK}:
+  proxy:
     external: true
